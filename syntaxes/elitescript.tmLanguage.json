@@ -1,0 +1,11 @@
+{
+  "name": "EliteScript",
+  "scopeName": "source.elitescript",
+  "patterns": [
+    {
+      "match": "^[ \\t]*(end)(?=[ \\t]*(?:#|$))",
+      "captures": { "1": { "name": "keyword.control.flow.elitescript" } }
+    },
+    { "include": "source.python" }
+  ]
+}

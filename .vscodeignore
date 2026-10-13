@@ -2,3 +2,11 @@
 .vscode-test/**
 .gitignore
 vsc-extension-quickstart.md
+src/**
+scripts/**
+test/**
+out/**/*.map
+tsconfig.json
+package-lock.json
+*.vsix
+.test-artifacts/**

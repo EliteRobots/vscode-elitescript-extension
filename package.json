@@ -2,9 +2,9 @@
   "name": "elitescript",
   "publisher": "elite-robots",
   "displayName": "ELITE CS Script",
-  "description": "Code snippet and completion items for CS Series Script (ELITE ROBOTS).",
+  "description": "EliteScript language support with Pyright intelligence for ELITE ROBOTS CS series.",
   "license": "MIT",
-  "version": "0.0.2",
+  "version": "0.1.1",
   "icon": "resources/logo.png",
   "engines": {
     "vscode": "^1.95.0"
@@ -27,28 +27,53 @@
     "url": "git+https://github.com/Elite-Robots/vscode-elitescript-extension.git"
   },
   "main": "./out/extension.js",
+  "extensionKind": ["workspace"],
+  "capabilities": {
+    "untrustedWorkspaces": { "supported": false },
+    "virtualWorkspaces": { "supported": false }
+  },
   "contributes": {
     "languages": [
       {
         "id": "elitescript",
         "aliases": [
-          "elitescript",
+          "EliteScript",
           "elitescript"
         ],
-        "extensions": [
-          ".script"
-        ]
+        "extensions": [".script"],
+        "configuration": "./language-configuration.json"
       }
     ],
-    "main": "./out/extension.js",
     "grammars": [
       {
         "language": "elitescript",
         "scopeName": "source.elitescript",
-        "path": "./syntaxes/elitescript.tmLanguage"
+        "path": "./syntaxes/elitescript.tmLanguage.json"
       }
     ],
+    "snippets": [{ "language": "elitescript", "path": "./snippets/elitescript.json" }],
+    "configuration": {
+      "title": "EliteScript",
+      "properties": {
+        "elitescript.documentationLanguage": {
+          "scope": "resource",
+          "type": "string", "enum": ["auto", "en", "cn"], "default": "auto",
+          "description": "Language of robot API documentation. Auto follows the VS Code display language."
+        },
+        "elitescript.pythonVersion": {
+          "scope": "resource",
+          "type": "string", "default": "3.8", "pattern": "^3\\.[0-9]+$",
+          "description": "Python version used for analysis. Set this to the version supported by your controller."
+        },
+        "elitescript.typeCheckingMode": {
+          "scope": "resource",
+          "type": "string", "enum": ["off", "basic", "standard", "strict"], "default": "basic",
+          "description": "Pyright type checking level for EliteScript."
+        }
+      }
+    },
     "commands": [
+      { "command": "elitescript.restartLanguageServer", "title": "Elite Script: Restart Language Server" },
       {
         "command": "extension.switchLanguageToChinese",
         "title": "Elite Script: Switch to Chinese"
@@ -57,22 +82,31 @@
         "command": "extension.switchLanguageToEnglish",
         "title": "Elite Script: Switch to English"
       }
-  ]
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "lint": "eslint",
-    "watch": "tsc -watch -p ./"
+    "compile": "node scripts/build.js",
+    "lint": "tsc -p ./ --noEmit",
+    "watch": "tsc -watch -p ./",
+    "test": "node scripts/build.js && node --test test/*.test.js",
+    "test:vscode": "node scripts/build.js && node scripts/test-vscode.js",
+    "package": "vsce package --out elitescript-0.1.1.vsix"
+  },
+  "dependencies": {
+    "pyright": "1.1.414",
+    "vscode-jsonrpc": "8.2.0",
+    "vscode-languageclient": "9.0.1",
+    "vscode-languageserver-protocol": "3.17.5",
+    "vscode-languageserver-textdocument": "1.0.12",
+    "vscode-uri": "3.1.0"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.3",
     "@types/node": "^22.10.0",
-    "json-schema": "^0.4.0",
-    "oniguruma": "^7.0.0",
-    "syntaxdev": "^0.1.3",
-    "tslint": "^5.20.1",
-    "typescript": "^5.6.3"
-  },
-  "dependencies": {}
+    "@types/vscode": "1.95.0",
+    "@vscode/vsce": "4.0.0",
+    "typescript": "^5.6.3",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.2.0"
+  }
 }

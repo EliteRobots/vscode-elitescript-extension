@@ -1,0 +1,12 @@
+# Open this file in VS Code to try hover, signature help and navigation.
+def run_task():
+    target = [0.0, -1.57, 1.57, 0.0, 1.57, 0.0]
+    movej(target, a=0.5, v=0.2)
+end
+
+# end is optional; ordinary Python indentation is also valid.
+def describe_task():
+    return "Example program"
+
+run_task()
+describe_task()

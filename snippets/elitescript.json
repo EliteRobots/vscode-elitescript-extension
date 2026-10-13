@@ -1,0 +1,9 @@
+{
+  "Function": { "prefix": "def", "body": ["def ${1:name}(${2}):", "\t${0:pass}", "end"], "description": "EliteScript function" },
+  "If": { "prefix": "if", "body": ["if ${1:condition}:", "\t${0:pass}", "end"], "description": "Conditional block" },
+  "If else": { "prefix": "ifelse", "body": ["if ${1:condition}:", "\t${2:pass}", "else:", "\t${0:pass}", "end"], "description": "Conditional with else" },
+  "While": { "prefix": "while", "body": ["while ${1:condition}:", "\t${0:pass}", "end"], "description": "While loop" },
+  "For": { "prefix": "for", "body": ["for ${1:item} in ${2:items}:", "\t${0:pass}", "end"], "description": "For loop" },
+  "Try": { "prefix": "try", "body": ["try:", "\t${1:pass}", "except ${2:Exception} as ${3:error}:", "\t${0:pass}", "end"], "description": "Exception handler" },
+  "End": { "prefix": "end", "body": "end", "description": "Optional block terminator" }
+}
