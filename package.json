@@ -4,7 +4,7 @@
   "displayName": "ELITE CS Script",
   "description": "EliteScript language support with Pyright intelligence for ELITE ROBOTS CS series.",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "icon": "resources/logo.png",
   "engines": {
     "vscode": "^1.95.0"
@@ -91,7 +91,7 @@
     "watch": "tsc -watch -p ./",
     "test": "node scripts/build.js && node --test test/*.test.js",
     "test:vscode": "node scripts/build.js && node scripts/test-vscode.js",
-    "package": "vsce package --out elitescript-0.1.1.vsix"
+    "package": "vsce package --out elitescript-1.0.0.vsix"
   },
   "dependencies": {
     "pyright": "1.1.414",

@@ -6,6 +6,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-15
+
+- Release the Pyright-based EliteScript extension as version 1.0.0, including the workspace scanning fixes from 0.1.1.
+- Update package metadata, language-server version and VSIX documentation to 1.0.0.
+
 ## [0.1.1]
 
 - Fix language-server initialization failures when workspace scans encounter inaccessible or disappearing source paths, including Windows IPC endpoints.

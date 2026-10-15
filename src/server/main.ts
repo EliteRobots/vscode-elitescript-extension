@@ -108,7 +108,7 @@ async function initialize(params: InitializeParams): Promise<InitializeResult> {
     });
     const upstream = result.capabilities;
     return {
-        serverInfo: { name: 'EliteScript (Pyright)', version: '0.1.1' },
+        serverInfo: { name: 'EliteScript (Pyright)', version: '1.0.0' },
         capabilities: {
             textDocumentSync: { openClose: true, change: TextDocumentSyncKind.Full, save: { includeText: false } },
             completionProvider: upstream.completionProvider,

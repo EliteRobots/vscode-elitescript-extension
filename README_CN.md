@@ -71,7 +71,7 @@ npm test
 npm run package
 ```
 
-生成安装包 `elitescript-0.1.1.vsix`。运行依赖、Pyright 和其 typeshed 均包含在包内，不能把整个 `node_modules` 排除在 VSIX 之外。
+生成安装包 `elitescript-1.0.0.vsix`。运行依赖、Pyright 和其 typeshed 均包含在包内，不能把整个 `node_modules` 排除在 VSIX 之外。
 
 `npm test` 会编译并执行词法适配、内置声明和真实 Pyright LSP 集成测试。高亮组合测试在找到本机 VS Code 的 Python grammar 时执行；自动发现失败时，可将 `VSCODE_PYTHON_GRAMMAR` 设置为内置 `MagicPython.tmLanguage.json` 的路径。
 

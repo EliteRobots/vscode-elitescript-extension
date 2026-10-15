@@ -71,7 +71,7 @@ npm test
 npm run package
 ```
 
-The package command produces `elitescript-0.1.1.vsix`. Runtime dependencies, including Pyright and its bundled typeshed, are included. Do not exclude `node_modules` wholesale from the VSIX.
+The package command produces `elitescript-1.0.0.vsix`. Runtime dependencies, including Pyright and its bundled typeshed, are included. Do not exclude `node_modules` wholesale from the VSIX.
 
 `npm test` compiles the extension and runs lexer/stub tests and real-Pyright LSP integration tests. A TextMate composition test uses the installed VS Code Python grammar when available; set `VSCODE_PYTHON_GRAMMAR` to its `MagicPython.tmLanguage.json` path if automatic discovery fails.
 
