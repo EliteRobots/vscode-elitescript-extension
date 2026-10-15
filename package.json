@@ -5,7 +5,7 @@
   "description": "EliteScript language support with Pyright intelligence for ELITE ROBOTS CS series.",
   "license": "MIT",
   "version": "1.0.0",
-  "icon": "resources/logo.png",
+  "icon": "resources/marketplace-icon.png",
   "engines": {
     "vscode": "^1.95.0"
   },
